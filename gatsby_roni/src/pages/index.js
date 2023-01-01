@@ -18,17 +18,33 @@ const components = {
       // Ex. 1: customizing common block types
       h1: ({children}) => <h1 className="text-2xl text-white">{children}</h1>,
       blockquote: ({children}) => <blockquote className="border-l-purple-500">{children}</blockquote>,
-  normal: ({children}) => <p className="text-white  text-2xl">{children}</p>,
+      normal: ({children}) => <p className="text-white mb-4 text-2xl">{children}</p>,
       // Ex. 2: rendering custom styles
       customHeading: ({children}) => (
         <h2 className="text-lg text-primary text-purple-700">{children}</h2>
       ),
+      listItem: {
+        // Ex. 1: customizing common list types
+        bullet: ({children}) => <ul className="">{children}</ul>,
+      },
+      marks: {
+        link: ({children, value}) => {
+          // const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
+          // const target = !value.href.startsWith('/') ? '_blank' : undefined
+          return (
+            <a className="text-yellow-600" target='_blank' href={value.href} rel='noreferrer noopener'>
+              {children}
+            </a>
+          )
+          },
+    },
+    },
       lists: {
         // Ex. 1: customizing common list types
         bullet: ({children}) => <ul className="">{children}</ul>,
       },
       
-    },
+     
   }
 
 
@@ -38,18 +54,19 @@ const IndexPage = ({data}) => {
   const work = data.allSanityExperience.nodes
   const tags = data.allSanityTag.nodes
 
-console.log(work[3]._rawDescription)
   return (
     <>
     <div className="bg-cyan-800 h-full py-8 scroll-smooth">
       <Header />
       <Social />
       <section className="lg:w-3/4 mt-4 md:mb-48 mx-auto md:flex">
-        <h2 className=" rounded-lg z-10 bg-fuchsia-100 text-cyan-900 text-4xl p-12 md:w-3/5 lg:w-2/5 my-auto md:ml-24 lg:ml-56">
-            {about.subtitle}
-          </h2>
-      <div className="hidden md:block md:order-first lg:order-last lg:-ml-40 lg:w-2/3 md:-ml-12 my-auto ">
-        <GatsbyImage image={about.mainImage.asset.gatsbyImage} alt={about.alt} className='fun lg:w-3/4 md:-ml-24 lg:m-auto z-0'/>  
+     
+          <h2 className="z-10 p-8 animate-border rounded-xl bg-white bg-gradient-to-r from-teal-500 via-purple-500 to-yellow-600 bg-[length:400%_400%]  transition hover:shadow-lg  focus:outline-none focus:ring text-cyan-900 text-4xl md:w-3/5 lg:w-2/5 my-auto md:ml-24 lg:ml-56">
+              {about.subtitle}
+            </h2>
+       
+      <div className="hidden md:block md:order-first lg:order-last lg:-ml-36 lg:w-2/3 md:-ml-12 my-auto ">
+        <GatsbyImage image={about.mainImage.asset.gatsbyImage} alt={about.alt} className='fun lg:w-3/4 md:-ml-20 lg:m-auto z-0'/>  
       </div>
     </section>
       
@@ -67,7 +84,7 @@ console.log(work[3]._rawDescription)
       </section>
   
       <section className='p-6 md:w-2/3 lg:w-1/2 mx-auto md:my-48' id="work"> 
-            <h3 className="text-xl md:-ml-8 mb-8 font-bold text-yellow-600">Work</h3>
+            <h3 className="text-6xl text-center mb-8 font-bold text-yellow-600">Work</h3>
             <Tabs defaultIndex={0} className="text-white text-xl">
                 <TabList>
                 <Tab>{work[3].company}</Tab>
@@ -75,13 +92,15 @@ console.log(work[3]._rawDescription)
                 </TabList>
 
                 <TabPanel>
-                <div className="flex mb-4">
-                  <CgBolt className="mt-1 mr-4 text-yellow-600" />
-                  <h3 >{work[3].title} @ {work[3].company}</h3>
-                   <p>{work[3].time}</p>
+                <div className="md:flex mb-4 justify-between">
+                  <div className="flex">
+                    <CgBolt className="mt-1 mr-4 text-yellow-600" />
+                    <h3 className=" text-yellow-600 font-bold">{work[3].title} @ {work[3].company}</h3>
+                  </div>
+                   <p className="text-base">{work[3].time}</p>
                     
                 </div>
-                <div className="work ml-6 md:ml-0">
+                <div className="work ml-6 md:ml-0 lg:ml-6">
 
                   <PortableText  value={work[3]._rawDescription} components={components} />
                 </div>
@@ -95,7 +114,7 @@ console.log(work[3]._rawDescription)
         
         {/* Projects */}
       <section className="md:my-48" id="projects">  
-        <h2 className="text-center text-3xl">Built <span className='text-yellow-600'>Projects</span></h2>
+        <h2 className="text-center text-6xl">Built <span className='text-yellow-600'>Projects</span></h2>
         
         {project.map((item) => (
           <div key={item.id} className="grid lg:grid-cols-2 gap-4 md:w-2/3 lg:w-1/2 m-auto my-8 p-4 rounded-lg text-white">
@@ -136,7 +155,7 @@ console.log(work[3]._rawDescription)
           <summary className="leading-6 text-slate-900 dark:text-white font-semibold select-none">
             Send a message
             </summary>
-            <div className="mt-3 leading-6 ">
+            <div className=" ">
               <ContactForm />
             </div>
       </details>
@@ -170,6 +189,7 @@ export const query = graphql`
         nodes{
         title
         company
+        time
         _rawDescription
         alt
         mainImage {

@@ -39,16 +39,26 @@ const ContactForm = (props) => {
   };
 
   return (
-    <div className="block md:p-6 m-auto text-center mt-4">
-    <form data-netlify="true" action="/" name="contactUs" method="post" onSubmit={handleSubmit} className="w-full">
-     {/* <label htmlFor="nameInput" className="text-4xl text-dark-tan mb-2 w-full font-bold">Send us a Message</label> */}
+    <div className="p-2  mt-4">
+    <form data-netlify="true" action="/" name="contactUs" method="post" onSubmit={handleSubmit} >
+{/* <label htmlFor="nameInput" className="text-4xl text-dark-tan mb-2 w-full font-bold">Send us a Message</label> */}
       <input type="hidden" name="form-name" value="contact-form" />
   
-        <input className='p-2 mb-2 w-72 md:w-96 text-black' name="Name" type="text" onChange={handleChange} required placeholder="Name"  />
-        <input className='p-2 mb-2 w-72 md:w-96 text-black' type='email' placeholder='Email' name='email' onChange={handleChange} required />
-        <textarea className='w-72 md:w-96 text-black' placeholder='Message' name='message' rows='8' minLength="8" onChange={handleChange} required />
-        <button className='bg-cyan-800 text-white p-4 my-4 md:mt-8 rounded' type='submit' >Contact Us</button>
-            
+      <div className="grid gap-6 sm:grid-cols-2">
+        <div className="relative z-0">
+          <input id="name" type="text" name="name" className="peer block w-full appearance-none border-0 border-b border-yellow-600 bg-transparent py-2.5 px-0 text-lg text-white focus:border-yellow-600 focus:outline-none focus:ring-0"  onChange={handleChange} required placeholder="" />
+          <label htmlFor="name"  className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-lg text-white duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-white peer-focus:dark:text-white">Your name</label>
+        </div>
+        <div className="relative z-0">
+          <input id="email" type="text" name="email" className="peer block w-full appearance-none border-0 border-b border-yellow-600 bg-transparent py-2.5 px-0 text-lg text-white focus:border-yellow-600 focus:outline-none focus:ring-0" placeholder=''  onChange={handleChange} required  />
+          <label htmlFor="email" className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-lg text-white duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-white peer-focus:dark:text-white">Your email</label>
+        </div>
+        <div className="relative z-0 col-span-2">
+          <textarea id="message" name="message" className="pl-1 peer block w-full appearance-none border-2 border-yellow-600 bg-transparent py-2.5 px-0 text-lg text-white focus:border-cyan-600 mt-2 focus:outline-none focus:ring-0" placeholder='' rows='8' minLength="20" onChange={handleChange} required></textarea>
+          <label htmlFor="message" className=" absolute top-2 -z-10 origin-[0] -translate-y-6 scale-75 transform text-lg text-white duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-white peer-focus:dark:text-white">Your message</label>
+        </div>
+      </div>
+      <button type="submit" className="mt-5 rounded-md bg-cyan-800 px-10 py-2 text-white">Send Message</button>
 
         </form>
   
