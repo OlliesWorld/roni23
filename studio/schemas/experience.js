@@ -1,41 +1,43 @@
 // import {HomeIcon} from '@sanity/icons'
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
     name: 'experience',
     type: 'document',
     title: 'Experience',
     // icon: HomeIcon,
     fields: [        
-      {
+      defineField({
         name: 'mainImage',
         title: 'Main image',
         type: 'image',
         options: {
           hotspot: true,
         },
-      },
-      { title: "Alt", name: "alt", type: "string" },
-      {
+      }),
+      defineField({ title: "Alt", name: "alt", type: "string" }),
+      defineField({
         name: 'title',
         title: 'Title',
         type: 'string',
-      },
-      {
+      }),
+      defineField({
         name: 'company',
         title: 'Company',
         type: 'string',
-      },
-     {
+      }),
+      defineField({
       name: 'time',
       title: 'Time',
       type: 'string',
-     },
-      {
+     }),
+     defineField({
         name: 'description',
         title: 'Description',
-        type: 'text',
+        type: 'blockContent',
       
-      },
-      {
+      }),
+      defineField({
         name: 'tags',
         title: 'Tags',
         type: 'array',
@@ -45,16 +47,16 @@ export default {
             to: [{ type: "tag" }],
           },
         ],
-      },
-      {
+      }),
+      defineField({
         title: 'Link',
         name: 'href',
         type: 'url',
         validation: Rule => Rule.uri({
           scheme: ['http', 'https', 'mailto', 'tel']
         })
-      },
-      {
+      }),
+      defineField({
         name: 'slug',
         title: 'Slug',
         type: 'slug',
@@ -62,6 +64,6 @@ export default {
           source: 'title',
           maxLength: 96,
         },
-      },
+      }),
     ]
-  }
+  })

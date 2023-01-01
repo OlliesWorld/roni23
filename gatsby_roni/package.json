@@ -15,6 +15,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@portabletext/react": "^2.0.0",
     "@react-icons/all-files": "^4.1.0",
     "gatsby": "^5.3.2",
     "gatsby-plugin-image": "^3.3.2",
