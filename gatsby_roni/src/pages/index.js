@@ -101,8 +101,8 @@ const IndexPage = ({data}) => {
                     
                 </div>
                 <div className="work ml-6 md:ml-0 lg:ml-6">
-
-                  <PortableText  value={work[3]._rawDescription} components={components} />
+{console.log(work[3]._rawDescription)}
+                  <PortableText  value={work._rawDescription} components={components} />
                 </div>
               
                 </TabPanel>

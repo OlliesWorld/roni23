@@ -11,7 +11,8 @@ export default defineConfig({
   name: 'default',
   title: 'studio',
 
-  projectId: import.meta.env.SANITY_STUDIO_PROJECT_ID,
+  // projectId: import.meta.env.SANITY_STUDIO_PROJECT_ID,
+  projectId: '8o1ous0j',
   dataset: 'production',
 
   plugins: [
@@ -20,7 +21,7 @@ export default defineConfig({
       documentListWidget({title: 'Last edited page', order: '_updatedAt desc'}),
       projectInfoWidget(),
       projectUsersWidget(),
-    //   
+      
     ]
     }), deskTool(), visionTool()],
 
