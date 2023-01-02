@@ -74,10 +74,10 @@ const IndexPage = ({data}) => {
         <h2 className="text-xl md:-ml-8 mb-8 font-bold text-yellow-600">About Me</h2> 
         <PortableText  value={data.sanityAbout._rawBody} components={components} />
         <div className="text-white mt-8 text-xl ">
-          <p>Here are a few technologies that I love working with:</p>
+          <p className="mb-4">Here are a few technologies that I love working with:</p>
           <ul className="grid grid-rows-5 md:grid-rows-4 grid-flow-col gap-4">
             {tags.map((tag) => (
-              <li key={tag.id} className='flex'><CgBolt className="mt-1 mr-4 text-yellow-600" />{tag.name}</li>
+              <li key={tag.id} className=' flex'><CgBolt className="mt-1 mr-2 text-yellow-600" />{tag.name}</li>
             ))}
           </ul>
         </div>
