@@ -11,7 +11,7 @@ export default defineConfig({
   name: 'default',
   title: 'studio',
 
-  projectId: '8o1ous0j',
+  projectId: import.meta.env.SANITY_STUDIO_PROJECT_ID,
   dataset: 'production',
 
   plugins: [
