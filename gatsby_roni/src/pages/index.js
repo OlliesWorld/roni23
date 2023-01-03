@@ -23,6 +23,7 @@ const components = {
       customHeading: ({children}) => (
         <h2 className="text-lg text-primary text-purple-700">{children}</h2>
       ),
+    },
       listItem: {
         // Ex. 1: customizing common list types
         bullet: ({children}) => <ul className="">{children}</ul>,
@@ -37,13 +38,8 @@ const components = {
             </a>
           )
           },
+   
     },
-    },
-      lists: {
-        // Ex. 1: customizing common list types
-        bullet: ({children}) => <ul className="">{children}</ul>,
-      },
-      
      
   }
 
@@ -82,29 +78,52 @@ const IndexPage = ({data}) => {
           </ul>
         </div>
       </section>
-  
+      {/* {console.log(work[3]._rawDescription)} */}
       <section className='p-6 md:w-2/3 lg:w-1/2 mx-auto md:my-48' id="work"> 
             <h3 className="text-6xl text-center mb-8 font-bold text-yellow-600">Work</h3>
             <Tabs defaultIndex={0} className="text-white text-xl">
-                <TabList>
-                <Tab>{work[3].company}</Tab>
+                <TabList> 
+                <Tab>{work[2].company}</Tab>
+                <Tab>{work[0].company}</Tab>
+                <Tab>{work[1].company}</Tab>
                 <Tab disabled>Future Opportunity</Tab>
                 </TabList>
-
                 <TabPanel>
                 <div className="md:flex mb-4 justify-between">
                   <div className="flex">
                     <CgBolt className="mt-1 mr-4 text-yellow-600" />
-                    <h3 className=" text-yellow-600 font-bold">{work[3].title} @ {work[3].company}</h3>
+                    <h3 className=" text-yellow-600 font-bold">{work[2].title} @ {work[2].company}</h3>
                   </div>
-                   <p className="text-base">{work[3].time}</p>
-                    
+                   <p className="text-base">{work[2].time}</p>                   
                 </div>
                 <div className="work ml-6 md:ml-0 lg:ml-6">
-{console.log(work[3]._rawDescription)}
-                  <PortableText  value={work._rawDescription} components={components} />
+                  <PortableText  value={work[2]._rawDescription} components={components} />
                 </div>
-              
+                </TabPanel>
+                <TabPanel>
+                <div className="md:flex mb-4 justify-between">
+                  <div className="flex">
+                    <CgBolt className="mt-1 mr-4 text-yellow-600" />
+                    <h3 className=" text-yellow-600 font-bold">{work[0].title} @ {work[0].company}</h3>
+                  </div>
+                   <p className="text-base">{work[0].time}</p>                   
+                </div>
+                <div className="work ml-6 md:ml-0 lg:ml-6">
+                  <PortableText  value={work[0]._rawDescription} components={components} />
+                </div>
+                </TabPanel>
+               
+                <TabPanel>
+                <div className="md:flex mb-4 justify-between">
+                  <div className="flex">
+                    <CgBolt className="mt-1 mr-4 text-yellow-600" />
+                    <h3 className=" text-yellow-600 font-bold">{work[1].title} @ {work[1].company}</h3>
+                  </div>
+                   <p className="text-base">{work[1].time}</p>                   
+                </div>
+                <div className="work ml-6 md:ml-0 lg:ml-6">
+                  <PortableText  value={work[1]._rawDescription} components={components} />
+                </div>
                 </TabPanel>
                 <TabPanel>
                   <p>this is the spot you can fill!</p>
