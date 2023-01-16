@@ -83,23 +83,11 @@ const IndexPage = ({data}) => {
             <h3 className="text-6xl text-center mb-8 font-bold text-yellow-600">Work</h3>
             <Tabs defaultIndex={0} className="text-white text-xl">
                 <TabList> 
-                <Tab>{work[2].company}</Tab>
                 <Tab>{work[0].company}</Tab>
+                <Tab>{work[2].company}</Tab>
                 <Tab>{work[1].company}</Tab>
                 <Tab disabled>Future Opportunity</Tab>
                 </TabList>
-                <TabPanel>
-                <div className="md:flex mb-4 justify-between">
-                  <div className="flex">
-                    <CgBolt className="mt-1 mr-4 text-yellow-600" />
-                    <h3 className=" text-yellow-600 font-bold">{work[2].title} @ {work[2].company}</h3>
-                  </div>
-                   <p className="text-base">{work[2].time}</p>                   
-                </div>
-                <div className="work ml-6 md:ml-0 lg:ml-6">
-                  <PortableText  value={work[2]._rawDescription} components={components} />
-                </div>
-                </TabPanel>
                 <TabPanel>
                 <div className="md:flex mb-4 justify-between">
                   <div className="flex">
@@ -110,6 +98,18 @@ const IndexPage = ({data}) => {
                 </div>
                 <div className="work ml-6 md:ml-0 lg:ml-6">
                   <PortableText  value={work[0]._rawDescription} components={components} />
+                </div>
+                </TabPanel>
+                <TabPanel>
+                <div className="md:flex mb-4 justify-between">
+                  <div className="flex">
+                    <CgBolt className="mt-1 mr-4 text-yellow-600" />
+                    <h3 className=" text-yellow-600 font-bold">{work[2].title} @ {work[2].company}</h3>
+                  </div>
+                   <p className="text-base">{work[2].time}</p>                   
+                </div>
+                <div className="work ml-6 md:ml-0 lg:ml-6">
+                  <PortableText  value={work[2]._rawDescription} components={components} />
                 </div>
                 </TabPanel>
                
@@ -144,7 +144,7 @@ const IndexPage = ({data}) => {
            <h3 className="my-2">{item.subtitle}</h3>
            
            
-           <p className="lg:-ml-12 p-6 bg-cyan-900 border-cyan-900 drop-shadow-lg">{item.description}</p>
+           <p className="lg:-ml-12 p-6 bg-cyan-900 border-cyan-900 drop-shadow-lg lg:origin-top-right lg:rotate-6 hover:rotate-0 hover:transition-transform ease-in-out hover:translate-x-8 sm:tranfom-none motion-reduce:transition-none motion-reduce:hover:transform-none">{item.description}</p>
            <div  className="flex flex-wrap mt-4 align-self-center">
              <a href={item.github} target="_blank" rel="noreferrer" aria-label="link to project github repo"><FiGithub className="text-white text-2xl mb-4 lg:mb-0 hover:text-yellow-600 mr-4" /></a>
              <a href={item.href} target="_blank" rel="noreferrer" aria-label="link to projects site"><CgArrowTopRightR className="text-white text-2xl mb-4 lg:mb-0 hover:text-yellow-600 mr-4"/></a>
