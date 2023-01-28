@@ -18,7 +18,7 @@ const components = {
       // Ex. 1: customizing common block types
       h1: ({children}) => <h1 className="text-2xl text-white">{children}</h1>,
       blockquote: ({children}) => <blockquote className="border-l-purple-500">{children}</blockquote>,
-      normal: ({children}) => <p className="text-white mb-4 text-2xl">{children}</p>,
+      normal: ({children}) => <p className=" text-black mb-4 text-2xl">{children}</p>,
       // Ex. 2: rendering custom styles
       customHeading: ({children}) => (
         <h2 className="text-lg text-primary text-purple-700">{children}</h2>
@@ -66,16 +66,18 @@ const IndexPage = ({data}) => {
       </div>
     </section>
       
-      <section className="p-6 md:w-2/3 lg:w-1/2 my-12 md:my-48  mx-auto" id="about">
-        <h2 className="text-xl md:-ml-8 mb-8 font-bold text-yellow-600">About Me</h2> 
+      <section className="text-black p-6 md:w-2/3 lg:w-1/2 my-12 md:my-48  mx-auto" id="about">
+        <h2 className=" text-xl md:-ml-8 mb-8 font-bold text-yellow-600">About Me</h2> 
+        <div className="h-full w-full bg-no-repeat bg-cover bg-center bg-fixed bg-ollie ">
         <PortableText  value={data.sanityAbout._rawBody} components={components} />
-        <div className="text-white mt-8 text-xl ">
+        <div className=" mt-8 text-xl ">
           <p className="mb-4">Here are a few technologies that I love working with:</p>
           <ul className="grid grid-rows-5 md:grid-rows-4 grid-flow-col gap-4">
             {tags.map((tag) => (
               <li key={tag.id} className=' flex'><CgBolt className="mt-1 mr-2 text-yellow-600" />{tag.name}</li>
             ))}
           </ul>
+        </div>
         </div>
       </section>
       {/* {console.log(work[3]._rawDescription)} */}
@@ -150,6 +152,7 @@ const IndexPage = ({data}) => {
              <a href={item.href} target="_blank" rel="noreferrer" aria-label="link to projects site"><CgArrowTopRightR className="text-white text-2xl mb-4 lg:mb-0 hover:text-yellow-600 mr-4"/></a>
              <div className="flex gap-4">
              {/* <p>tags</p> */}
+             {/* {console.log(item.tags)} */}
              {item.tags.map((tag) => (
                <div key={tag.id}  className=''>
                  {tag.name === 'Gatsby' && (<p className="text-purple-700">{tag.name}</p>)}

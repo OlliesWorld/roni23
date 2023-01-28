@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'ollie': "url('/olliecute.png')",
+      },
       animation: {
         border: 'border 8s ease-in-out infinite',
       },
