@@ -18,7 +18,7 @@ const components = {
       // Ex. 1: customizing common block types
       h1: ({children}) => <h1 className="text-2xl text-white">{children}</h1>,
       blockquote: ({children}) => <blockquote className="border-l-purple-500">{children}</blockquote>,
-      normal: ({children}) => <p className=" text-black mb-4 text-2xl">{children}</p>,
+      normal: ({children}) => <p className=" text-white mb-4 text-2xl">{children}</p>,
       // Ex. 2: rendering custom styles
       customHeading: ({children}) => (
         <h2 className="text-lg text-primary text-purple-700">{children}</h2>
@@ -42,7 +42,8 @@ const components = {
     },
      
   }
-
+  // #0c243c
+  // #0c243c -olive tone
 
 const IndexPage = ({data}) => {
   const about = data.sanityAbout
@@ -52,8 +53,8 @@ const IndexPage = ({data}) => {
 
   return (
     <>
-    <div className="bg-cyan-800 h-full py-8 scroll-smooth">
       <Header />
+    <div className="bg-[#05386b] h-full py-8 scroll-smooth">
       <Social />
       <section className="lg:w-3/4 mt-4 md:mb-48 mx-auto md:flex">
      
@@ -66,9 +67,11 @@ const IndexPage = ({data}) => {
       </div>
     </section>
       
-      <section className="text-black p-6 md:w-2/3 lg:w-1/2 my-12 md:my-48  mx-auto" id="about">
-        <h2 className=" text-xl md:-ml-8 mb-8 font-bold text-yellow-600">About Me</h2> 
-        <div className="h-full w-full bg-no-repeat bg-cover bg-center bg-fixed bg-ollie ">
+      <section>
+      <div className="h-full w-full bg-no-repeat bg-50% bg-right bg-fixed bg-ollie ">
+      <div className="text-white p-6 md:w-2/3 lg:w-1/3 my-12 md:my-48  mx-auto" id="about">
+        <h2 className="text-6xl md:-ml-8 mb-8 font-bold text-yellow-600">About Me</h2> 
+        
         <PortableText  value={data.sanityAbout._rawBody} components={components} />
         <div className=" mt-8 text-xl ">
           <p className="mb-4">Here are a few technologies that I love working with:</p>
@@ -79,9 +82,10 @@ const IndexPage = ({data}) => {
           </ul>
         </div>
         </div>
+        </div>
       </section>
       {/* {console.log(work[3]._rawDescription)} */}
-      <section className='p-6 md:w-2/3 lg:w-1/2 mx-auto md:my-48' id="work"> 
+      <section className=' p-6 md:w-2/3 lg:w-1/2 mx-auto md:my-48' id="work"> 
             <h3 className="text-6xl text-center mb-8 font-bold text-yellow-600">Work</h3>
             <Tabs defaultIndex={0} className="text-white text-xl">
                 <TabList> 
@@ -100,6 +104,7 @@ const IndexPage = ({data}) => {
                 </div>
                 <div className="work ml-6 md:ml-0 lg:ml-6">
                   <PortableText  value={work[0]._rawDescription} components={components} />
+                  {work[0].href && <a href={work[0].href} className="text-white hover:text-yellow-600" target="_blank" rel="noreferrer">Deployed Site</a>}         
                 </div>
                 </TabPanel>
                 <TabPanel>
@@ -108,10 +113,12 @@ const IndexPage = ({data}) => {
                     <CgBolt className="mt-1 mr-4 text-yellow-600" />
                     <h3 className=" text-yellow-600 font-bold">{work[2].title} @ {work[2].company}</h3>
                   </div>
-                   <p className="text-base">{work[2].time}</p>                   
+                   <p className="text-base">{work[2].time}</p>    
+                  
                 </div>
                 <div className="work ml-6 md:ml-0 lg:ml-6">
                   <PortableText  value={work[2]._rawDescription} components={components} />
+                  {work[2].href && <a className="text-white hover:text-yellow-600 " href={work[2].href}target="_blank" rel="noreferrer">Deployed Site</a>}  
                 </div>
                 </TabPanel>
                
@@ -125,6 +132,7 @@ const IndexPage = ({data}) => {
                 </div>
                 <div className="work ml-6 md:ml-0 lg:ml-6">
                   <PortableText  value={work[1]._rawDescription} components={components} />
+                  {work[1].href && <a className="text-white hover:text-yellow-600" href={work[1].href} target="_blank" rel="noreferrer">Deployed Site</a>             }
                 </div>
                 </TabPanel>
                 <TabPanel>
@@ -136,6 +144,7 @@ const IndexPage = ({data}) => {
         {/* Projects */}
       <section className="md:my-48" id="projects">  
         <h2 className="text-center text-6xl">Built <span className='text-yellow-600'>Projects</span></h2>
+        <p className="text-white text-center">checkout my github for more projects that aren't deployed!</p>
         
         {project.map((item) => (
           <div key={item.id} className="grid lg:grid-cols-2 gap-4 md:w-2/3 lg:w-1/2 m-auto my-8 p-4 rounded-lg text-white">
@@ -146,7 +155,7 @@ const IndexPage = ({data}) => {
            <h3 className="my-2">{item.subtitle}</h3>
            
            
-           <p className="lg:-ml-12 p-6 bg-cyan-900 border-cyan-900 drop-shadow-lg lg:origin-top-right lg:rotate-6 hover:rotate-0 hover:transition-transform ease-in-out hover:translate-x-8 sm:tranfom-none motion-reduce:transition-none motion-reduce:hover:transform-none">{item.description}</p>
+           <p className="lg:-ml-12 p-6 bg-[#00468b] border-cyan-900 drop-shadow-lg lg:origin-top-right lg:rotate-6 hover:rotate-0 hover:transition-transform ease-in-out hover:translate-x-8 sm:tranfom-none motion-reduce:transition-none motion-reduce:hover:transform-none">{item.description}</p>
            <div  className="flex flex-wrap mt-4 align-self-center">
              <a href={item.github} target="_blank" rel="noreferrer" aria-label="link to project github repo"><FiGithub className="text-white text-2xl mb-4 lg:mb-0 hover:text-yellow-600 mr-4" /></a>
              <a href={item.href} target="_blank" rel="noreferrer" aria-label="link to projects site"><CgArrowTopRightR className="text-white text-2xl mb-4 lg:mb-0 hover:text-yellow-600 mr-4"/></a>
@@ -183,8 +192,8 @@ const IndexPage = ({data}) => {
       </details>
               
        </section>
-      <Footer />
     </div>
+      <Footer />
     </>
   )
 }
@@ -214,6 +223,7 @@ export const query = graphql`
         time
         _rawDescription
         alt
+        href
         mainImage {
           asset {
             gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED, width: 850)

@@ -9,6 +9,10 @@ module.exports = {
       backgroundImage: {
         'ollie': "url('/olliecute.png')",
       },
+      backgroundSize: {
+        '50%': '50%',
+      '16': '4rem',
+      },
       animation: {
         border: 'border 8s ease-in-out infinite',
       },
