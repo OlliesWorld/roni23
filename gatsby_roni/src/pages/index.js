@@ -75,7 +75,7 @@ const IndexPage = ({data}) => {
         <PortableText  value={data.sanityAbout._rawBody} components={components} />
         <div className=" mt-8 text-xl ">
           <p className="mb-4">Here are a few technologies that I love working with:</p>
-          <ul className="grid grid-rows-5 md:grid-rows-4 grid-flow-col gap-4">
+          <ul className="grid grid-rows-6 md:grid-rows-4 grid-flow-col gap-4">
             {tags.map((tag) => (
               <li key={tag.id} className=' flex'><CgBolt className="mt-1 mr-2 text-[#c6c60c]" />{tag.name}</li>
             ))}
@@ -89,11 +89,25 @@ const IndexPage = ({data}) => {
             <h3 className="text-6xl text-center mb-8 font-bold text-[#c6c60c]">Work</h3>
             <Tabs defaultIndex={0} className="text-white text-xl">
                 <TabList> 
-                <Tab>{work[0].company}</Tab>
                 <Tab>{work[2].company}</Tab>
+                <Tab>{work[0].company}</Tab>
                 <Tab>{work[1].company}</Tab>
                 <Tab disabled>Future Opportunity</Tab>
                 </TabList>
+                <TabPanel>
+                <div className="md:flex mb-4 justify-between">
+                  <div className="flex">
+                    <CgBolt className="mt-1 mr-4 text-[#c6c60c]0" />
+                    <h3 className=" text-[#c6c60c] font-bold">{work[2].title} @ {work[2].company}</h3>
+                  </div>
+                   <p className="text-base">{work[2].time}</p>    
+                  
+                </div>
+                <div className="work ml-6 md:ml-0 lg:ml-6">
+                  <PortableText  value={work[2]._rawDescription} components={components} />
+                  {work[2].href && <a className="hover:text-white text-[#c6c60c] " href={work[2].href}target="_blank" rel="noreferrer">Newsletter Page</a>}  
+                </div>
+                </TabPanel>
                 <TabPanel>
                 <div className="md:flex mb-4 justify-between">
                   <div className="flex">
@@ -107,21 +121,6 @@ const IndexPage = ({data}) => {
                   {work[0].href && <a href={work[0].href} className="hover:text-white text-[#c6c60c]" target="_blank" rel="noreferrer">Deployed Site</a>}         
                 </div>
                 </TabPanel>
-                <TabPanel>
-                <div className="md:flex mb-4 justify-between">
-                  <div className="flex">
-                    <CgBolt className="mt-1 mr-4 text-[#c6c60c]0" />
-                    <h3 className=" text-[#c6c60c] font-bold">{work[2].title} @ {work[2].company}</h3>
-                  </div>
-                   <p className="text-base">{work[2].time}</p>    
-                  
-                </div>
-                <div className="work ml-6 md:ml-0 lg:ml-6">
-                  <PortableText  value={work[2]._rawDescription} components={components} />
-                  {work[2].href && <a className="hover:text-white text-[#c6c60c] " href={work[2].href}target="_blank" rel="noreferrer">Deployed Site</a>}  
-                </div>
-                </TabPanel>
-               
                 <TabPanel>
                 <div className="md:flex mb-4 justify-between">
                   <div className="flex">
@@ -144,7 +143,7 @@ const IndexPage = ({data}) => {
         {/* Projects */}
       <section className="md:my-48" id="projects">  
         <h2 className="text-center text-6xl">Built <span className='text-[#c6c60c]'>Projects</span></h2>
-        <p className="text-white text-center">checkout my github for more projects that aren't deployed!</p>
+        <p className="text-white text-center text-sm">checkout my github for more projects that aren't deployed!</p>
         
         {project.map((item) => (
           <div key={item.id} className="grid lg:grid-cols-2 gap-4 md:w-2/3 lg:w-1/2 m-auto my-8 p-4 rounded-lg text-white">
