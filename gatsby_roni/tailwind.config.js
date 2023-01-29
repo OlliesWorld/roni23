@@ -11,7 +11,7 @@ module.exports = {
       },
       backgroundSize: {
         '50%': '50%',
-      '16': '4rem',
+      '16': '14rem',
       },
       animation: {
         border: 'border 8s ease-in-out infinite',

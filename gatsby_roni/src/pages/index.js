@@ -18,7 +18,7 @@ const components = {
       // Ex. 1: customizing common block types
       h1: ({children}) => <h1 className="text-2xl text-white">{children}</h1>,
       blockquote: ({children}) => <blockquote className="border-l-purple-500">{children}</blockquote>,
-      normal: ({children}) => <p className=" text-white mb-4 text-2xl">{children}</p>,
+      normal: ({children}) => <p className="break-word text-white mb-4 text-2xl">{children}</p>,
       // Ex. 2: rendering custom styles
       customHeading: ({children}) => (
         <h2 className="text-lg text-primary text-purple-700">{children}</h2>
@@ -33,7 +33,7 @@ const components = {
           // const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
           // const target = !value.href.startsWith('/') ? '_blank' : undefined
           return (
-            <a className="text-yellow-600" target='_blank' href={value.href} rel='noreferrer noopener'>
+            <a className="text-[#c6c60c] break-all" target='_blank' href={value.href} rel='noreferrer noopener'>
               {children}
             </a>
           )
@@ -58,7 +58,7 @@ const IndexPage = ({data}) => {
       <Social />
       <section className="lg:w-3/4 mt-4 md:mb-48 mx-auto md:flex">
      
-          <h2 className="z-10 p-8 animate-border rounded-xl bg-white bg-gradient-to-r from-teal-500 via-purple-500 to-yellow-600 bg-[length:400%_400%]  transition hover:shadow-lg  focus:outline-none focus:ring text-cyan-900 text-4xl md:w-3/5 lg:w-2/5 my-auto md:ml-24 lg:ml-56">
+          <h2 className="z-10 p-8 animate-border rounded-xl bg-white bg-gradient-to-r from-teal-500 via-purple-500 to-[#c6c60c] bg-[length:400%_400%]  transition hover:shadow-lg  focus:outline-none focus:ring text-[#05386b] text-4xl md:w-3/5 lg:w-2/5 my-auto md:ml-24 lg:ml-56">
               {about.subtitle}
             </h2>
        
@@ -68,16 +68,16 @@ const IndexPage = ({data}) => {
     </section>
       
       <section>
-      <div className="h-full w-full bg-no-repeat bg-50% bg-right bg-fixed bg-ollie ">
+      <div className="h-full w-full bg-no-repeat bg-16 lg:bg-50% bg-right bg-fixed md:bg-ollie ">
       <div className="text-white p-6 md:w-2/3 lg:w-1/3 my-12 md:my-48  mx-auto" id="about">
-        <h2 className="text-6xl md:-ml-8 mb-8 font-bold text-yellow-600">About Me</h2> 
+        <h2 className="text-6xl md:-ml-8 mb-8 font-bold text-[#c6c60c]">About Me</h2> 
         
         <PortableText  value={data.sanityAbout._rawBody} components={components} />
         <div className=" mt-8 text-xl ">
           <p className="mb-4">Here are a few technologies that I love working with:</p>
           <ul className="grid grid-rows-5 md:grid-rows-4 grid-flow-col gap-4">
             {tags.map((tag) => (
-              <li key={tag.id} className=' flex'><CgBolt className="mt-1 mr-2 text-yellow-600" />{tag.name}</li>
+              <li key={tag.id} className=' flex'><CgBolt className="mt-1 mr-2 text-[#c6c60c]" />{tag.name}</li>
             ))}
           </ul>
         </div>
@@ -86,7 +86,7 @@ const IndexPage = ({data}) => {
       </section>
       {/* {console.log(work[3]._rawDescription)} */}
       <section className=' p-6 md:w-2/3 lg:w-1/2 mx-auto md:my-48' id="work"> 
-            <h3 className="text-6xl text-center mb-8 font-bold text-yellow-600">Work</h3>
+            <h3 className="text-6xl text-center mb-8 font-bold text-[#c6c60c]">Work</h3>
             <Tabs defaultIndex={0} className="text-white text-xl">
                 <TabList> 
                 <Tab>{work[0].company}</Tab>
@@ -97,42 +97,42 @@ const IndexPage = ({data}) => {
                 <TabPanel>
                 <div className="md:flex mb-4 justify-between">
                   <div className="flex">
-                    <CgBolt className="mt-1 mr-4 text-yellow-600" />
-                    <h3 className=" text-yellow-600 font-bold">{work[0].title} @ {work[0].company}</h3>
+                    <CgBolt className="mt-1 mr-4 text-[#c6c60c]" />
+                    <h3 className=" text-[#c6c60c] font-bold">{work[0].title} @ {work[0].company}</h3>
                   </div>
                    <p className="text-base">{work[0].time}</p>                   
                 </div>
                 <div className="work ml-6 md:ml-0 lg:ml-6">
                   <PortableText  value={work[0]._rawDescription} components={components} />
-                  {work[0].href && <a href={work[0].href} className="text-white hover:text-yellow-600" target="_blank" rel="noreferrer">Deployed Site</a>}         
+                  {work[0].href && <a href={work[0].href} className="hover:text-white text-[#c6c60c]" target="_blank" rel="noreferrer">Deployed Site</a>}         
                 </div>
                 </TabPanel>
                 <TabPanel>
                 <div className="md:flex mb-4 justify-between">
                   <div className="flex">
-                    <CgBolt className="mt-1 mr-4 text-yellow-600" />
-                    <h3 className=" text-yellow-600 font-bold">{work[2].title} @ {work[2].company}</h3>
+                    <CgBolt className="mt-1 mr-4 text-[#c6c60c]0" />
+                    <h3 className=" text-[#c6c60c] font-bold">{work[2].title} @ {work[2].company}</h3>
                   </div>
                    <p className="text-base">{work[2].time}</p>    
                   
                 </div>
                 <div className="work ml-6 md:ml-0 lg:ml-6">
                   <PortableText  value={work[2]._rawDescription} components={components} />
-                  {work[2].href && <a className="text-white hover:text-yellow-600 " href={work[2].href}target="_blank" rel="noreferrer">Deployed Site</a>}  
+                  {work[2].href && <a className="hover:text-white text-[#c6c60c] " href={work[2].href}target="_blank" rel="noreferrer">Deployed Site</a>}  
                 </div>
                 </TabPanel>
                
                 <TabPanel>
                 <div className="md:flex mb-4 justify-between">
                   <div className="flex">
-                    <CgBolt className="mt-1 mr-4 text-yellow-600" />
-                    <h3 className=" text-yellow-600 font-bold">{work[1].title} @ {work[1].company}</h3>
+                    <CgBolt className="mt-1 mr-4 text-[#c6c60c]" />
+                    <h3 className=" text-[#c6c60c] font-bold">{work[1].title} @ {work[1].company}</h3>
                   </div>
                    <p className="text-base">{work[1].time}</p>                   
                 </div>
                 <div className="work ml-6 md:ml-0 lg:ml-6">
                   <PortableText  value={work[1]._rawDescription} components={components} />
-                  {work[1].href && <a className="text-white hover:text-yellow-600" href={work[1].href} target="_blank" rel="noreferrer">Deployed Site</a>             }
+                  {work[1].href && <a className="hover:text-white text-[#c6c60c]" href={work[1].href} target="_blank" rel="noreferrer">Deployed Site</a>             }
                 </div>
                 </TabPanel>
                 <TabPanel>
@@ -143,7 +143,7 @@ const IndexPage = ({data}) => {
         
         {/* Projects */}
       <section className="md:my-48" id="projects">  
-        <h2 className="text-center text-6xl">Built <span className='text-yellow-600'>Projects</span></h2>
+        <h2 className="text-center text-6xl">Built <span className='text-[#c6c60c]'>Projects</span></h2>
         <p className="text-white text-center">checkout my github for more projects that aren't deployed!</p>
         
         {project.map((item) => (
@@ -157,8 +157,8 @@ const IndexPage = ({data}) => {
            
            <p className="lg:-ml-12 p-6 bg-[#00468b] border-cyan-900 drop-shadow-lg lg:origin-top-right lg:rotate-6 hover:rotate-0 hover:transition-transform ease-in-out hover:translate-x-8 sm:tranfom-none motion-reduce:transition-none motion-reduce:hover:transform-none">{item.description}</p>
            <div  className="flex flex-wrap mt-4 align-self-center">
-             <a href={item.github} target="_blank" rel="noreferrer" aria-label="link to project github repo"><FiGithub className="text-white text-2xl mb-4 lg:mb-0 hover:text-yellow-600 mr-4" /></a>
-             <a href={item.href} target="_blank" rel="noreferrer" aria-label="link to projects site"><CgArrowTopRightR className="text-white text-2xl mb-4 lg:mb-0 hover:text-yellow-600 mr-4"/></a>
+             <a href={item.github} target="_blank" rel="noreferrer" aria-label="link to project github repo"><FiGithub className="text-white text-2xl mb-4 lg:mb-0 hover:text-[#c6c60c] mr-4" /></a>
+             <a href={item.href} target="_blank" rel="noreferrer" aria-label="link to projects site"><CgArrowTopRightR className="text-white text-2xl mb-4 lg:mb-0 hover:text-[#c6c60c] mr-4"/></a>
              <div className="flex gap-4">
              {/* <p>tags</p> */}
              {/* {console.log(item.tags)} */}
