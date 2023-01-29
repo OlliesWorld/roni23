@@ -18,7 +18,7 @@ const components = {
       // Ex. 1: customizing common block types
       h1: ({children}) => <h1 className="text-2xl text-white">{children}</h1>,
       blockquote: ({children}) => <blockquote className="border-l-purple-500">{children}</blockquote>,
-      normal: ({children}) => <p className="break-word text-white mb-4 text-2xl">{children}</p>,
+      normal: ({children}) => <p className="break-all text-white mb-4 text-2xl">{children}</p>,
       // Ex. 2: rendering custom styles
       customHeading: ({children}) => (
         <h2 className="text-lg text-primary text-purple-700">{children}</h2>
@@ -155,7 +155,7 @@ const IndexPage = ({data}) => {
            <h3 className="my-2">{item.subtitle}</h3>
            
            
-           <p className="lg:-ml-12 p-6 bg-[#00468b] border-cyan-900 drop-shadow-lg lg:origin-top-right lg:rotate-6 hover:rotate-0 hover:transition-transform ease-in-out hover:translate-x-8 sm:tranfom-none motion-reduce:transition-none motion-reduce:hover:transform-none">{item.description}</p>
+           <p className="lg:-ml-12 p-6 bg-[#00468b] border-[#00468b] drop-shadow-lg lg:origin-top-right lg:rotate-6 lg:hover:rotate-0 lg:hover:transition-transform ease-in-out lg:hover:translate-x-8 sm:tranfom-none motion-reduce:transition-none motion-reduce:hover:transform-none">{item.description}</p>
            <div  className="flex flex-wrap mt-4 align-self-center">
              <a href={item.github} target="_blank" rel="noreferrer" aria-label="link to project github repo"><FiGithub className="text-white text-2xl mb-4 lg:mb-0 hover:text-[#c6c60c] mr-4" /></a>
              <a href={item.href} target="_blank" rel="noreferrer" aria-label="link to projects site"><CgArrowTopRightR className="text-white text-2xl mb-4 lg:mb-0 hover:text-[#c6c60c] mr-4"/></a>
