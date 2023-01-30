@@ -246,6 +246,7 @@ export const query = graphql`
         description
         alt
         href
+        github
         mainImage {
           asset {
             gatsbyImage(layout: CONSTRAINED, placeholder: BLURRED, width: 850)
