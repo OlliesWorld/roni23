@@ -11,6 +11,7 @@ import {FiGithub } from "@react-icons/all-files/fi/FiGithub";
 import { CgArrowTopRightR } from "@react-icons/all-files/cg/CgArrowTopRightR";
 import Footer from "../components/footer";
 import {PortableText} from "@portabletext/react";
+import Seo from "../components/seo"
 
 
 const components = {
@@ -18,7 +19,7 @@ const components = {
       // Ex. 1: customizing common block types
       h1: ({children}) => <h1 className="text-2xl text-white">{children}</h1>,
       blockquote: ({children}) => <blockquote className="border-l-purple-500">{children}</blockquote>,
-      normal: ({children}) => <p className="break-all text-white mb-4 text-2xl">{children}</p>,
+      normal: ({children}) => <p className="break-word text-white mb-4 text-2xl">{children}</p>,
       // Ex. 2: rendering custom styles
       customHeading: ({children}) => (
         <h2 className="text-lg text-primary text-purple-700">{children}</h2>
@@ -53,6 +54,7 @@ const IndexPage = ({data}) => {
 
   return (
     <>
+    <Seo title="Roni Developer Portfolio | Front-end Developer" />
       <Header />
     <div className="bg-[#05386b] h-full py-8 scroll-smooth">
       <Social />
@@ -103,7 +105,7 @@ const IndexPage = ({data}) => {
                    <p className="text-base">{work[2].time}</p>    
                   
                 </div>
-                <div className="work ml-6 md:ml-0 lg:ml-6">
+                <div className="work ml-0 lg:ml-6">
                   <PortableText  value={work[2]._rawDescription} components={components} />
                   {work[2].href && <a className="hover:text-white text-[#c6c60c] " href={work[2].href}target="_blank" rel="noreferrer">Newsletter Page</a>}  
                 </div>
@@ -116,7 +118,7 @@ const IndexPage = ({data}) => {
                   </div>
                    <p className="text-base">{work[0].time}</p>                   
                 </div>
-                <div className="work ml-6 md:ml-0 lg:ml-6">
+                <div className="work ml-0 lg:ml-6">
                   <PortableText  value={work[0]._rawDescription} components={components} />
                   {work[0].href && <a href={work[0].href} className="hover:text-white text-[#c6c60c]" target="_blank" rel="noreferrer">Deployed Site</a>}         
                 </div>
@@ -129,7 +131,7 @@ const IndexPage = ({data}) => {
                   </div>
                    <p className="text-base">{work[1].time}</p>                   
                 </div>
-                <div className="work ml-6 md:ml-0 lg:ml-6">
+                <div className="work lg:ml-6">
                   <PortableText  value={work[1]._rawDescription} components={components} />
                   {work[1].href && <a className="hover:text-white text-[#c6c60c]" href={work[1].href} target="_blank" rel="noreferrer">Deployed Site</a>             }
                 </div>
@@ -156,8 +158,8 @@ const IndexPage = ({data}) => {
            
            <p className="lg:-ml-12 p-6 bg-[#00468b] border-[#00468b] drop-shadow-lg lg:origin-top-right lg:rotate-6 lg:hover:rotate-0 lg:hover:transition-transform ease-in-out lg:hover:translate-x-8 sm:tranfom-none motion-reduce:transition-none motion-reduce:hover:transform-none">{item.description}</p>
            <div  className="flex flex-wrap mt-4 align-self-center">
-             <a href={item.github} target="_blank" rel="noreferrer" aria-label="link to project github repo"><FiGithub className="text-white text-2xl mb-4 lg:mb-0 hover:text-[#c6c60c] mr-4" /></a>
-             <a href={item.href} target="_blank" rel="noreferrer" aria-label="link to projects site"><CgArrowTopRightR className="text-white text-2xl mb-4 lg:mb-0 hover:text-[#c6c60c] mr-4"/></a>
+             <a href={item.github} target="_blank" rel="noreferrer" alt="link to project github repo"><FiGithub className="text-white text-2xl mb-4 lg:mb-0 hover:text-[#c6c60c] mr-4" /></a>
+             <a href={item.href} target="_blank" rel="noreferrer" alt="link to projects site"><CgArrowTopRightR className="text-white text-2xl mb-4 lg:mb-0 hover:text-[#c6c60c] mr-4"/></a>
              <div className="flex gap-4">
              {/* <p>tags</p> */}
              {/* {console.log(item.tags)} */}
