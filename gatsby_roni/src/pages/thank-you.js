@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 
 export default function Thanks() {
     return (
-        <div className="bg-yellow-600 h-screen">
+        <div className="bg-[#8b8b00]s h-screen">
             <Link to="/" className="text-purple-800 font-bold ml-24 text-2xl">Go Back </Link> 
             <div className="md:flex w-3/4"> 
             <StaticImage  alt="ollie and i" src="../images/smile.png" width={500} height={500} objectFit="contain" loading="lazy" />

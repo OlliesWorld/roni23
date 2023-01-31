@@ -1,7 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@layer base {
+    h1, h2, h3, h4 {
+        font-family: Andalé Mono, monospace;
+    }
+    body {
+      font-family: Proxima Nova, system-ui, sans-serif;
+    }
+  }
 .work ul li {
     list-style-type: square;
 }
