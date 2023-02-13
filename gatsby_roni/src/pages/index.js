@@ -73,7 +73,7 @@ const IndexPage = ({data}) => {
       <div className="h-full w-full bg-no-repeat lg:bg-50% bg-right bg-fixed md:bg-ollie ">
       <div className="text-white p-6 md:w-2/3 lg:w-1/2  md:my-48  mx-auto" id="about">
         <h2 className="text-6xl md:-ml-8 mb-8 font-bold text-[#c6c60c]">About Me</h2> 
-        <div className="w-3/4">
+        <div className="md:w-3/4">
         <PortableText   value={data.sanityAbout._rawBody} components={components} />
         </div>
         <div className=" mt-8 text-xl ">

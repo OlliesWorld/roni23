@@ -41,21 +41,21 @@ const NotesPage = ({data}) => {
     const notes = data.notes.nodes
     console.log(notes)
     return (
-        <main className="bg-slate-800 h-screen text-blue-900 ">
+        <main className="bg-slate-800 h-full pb-12">
         <Header />
-        <h2 className="text-6xl bg-[#8b8b00] text-center">Notes</h2>
-        <section className="text-white w-1/2 m-auto ">
-            <p>Somewhere I can keep notes of things I have done and found helpful.</p>
+        <h2 className="text-6xl text-[#8b8b00] text-center">Notes</h2>
+        <section className="text-white  md:w-1/2 m-auto ">
+            <p className="mb-4">Somewhere I can keep notes of things I have done and found helpful.</p>
             {notes.map((note) => (
                 <div key={note._id} className="border-4 border-blue-900 mb-8">
                 <div className="flex justify-between px-4 mb-4 m-auto text-2xl font-bold">
                     <p>{note.title}</p>
                     <p>{note.author.name}</p>
                 </div>
-            <div className="px-4">
+            <div className="px-4 ">
             <PortableText   value={note._rawBody} components={body} />
             </div>
-                    <p className="text-sm">Date: {note.publishedAt}</p>
+                    <p className="text-sm m-2">Date: {note.publishedAt}</p>
             </div>
             ))}
             
