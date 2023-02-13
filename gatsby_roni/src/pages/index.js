@@ -145,7 +145,7 @@ const IndexPage = ({data}) => {
         
         {/* Projects */}
       <section className="mx-auto md:my-48" id="projects">  
-        <h2 className="md:-ml-96 text-center text-6xl font-bold">Built <span className='text-[#c6c60c]'>Projects</span></h2>
+        <h2 className="md:pr-64 text-center text-6xl font-bold">Built <span className='text-[#c6c60c]'>Projects</span></h2>
         <p className="text-white text-center text-sm">checkout my github for more projects that aren't deployed!</p>
         
         {project.sort().map((item) => (
