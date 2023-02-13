@@ -11,8 +11,7 @@ import {FiGithub } from "@react-icons/all-files/fi/FiGithub";
 import { CgArrowTopRightR } from "@react-icons/all-files/cg/CgArrowTopRightR";
 import Footer from "../components/footer";
 import {PortableText} from "@portabletext/react";
-import Seo from "../components/seo"
-
+import Seo from "../components/seo";
 
 const components = {
     block: {
@@ -58,6 +57,7 @@ const IndexPage = ({data}) => {
       <Header />
     <div className="bg-[#05386b] h-full py-8 scroll-smooth">
       <Social />
+    
       <section className="lg:w-3/4 mt-4 md:mb-48 mx-auto md:flex">
      
           <h2 className="z-10 p-8 animate-border rounded-xl bg-white bg-gradient-to-r from-teal-500 via-purple-500 to-[#c6c60c] bg-[length:400%_400%]  transition hover:shadow-lg  focus:outline-none focus:ring text-[#05386b] text-4xl md:w-3/5 lg:w-2/5 my-auto md:ml-24 lg:ml-56">
@@ -68,13 +68,14 @@ const IndexPage = ({data}) => {
         <GatsbyImage image={about.mainImage.asset.gatsbyImage} alt={about.alt} className='fun lg:w-3/4 md:-ml-20 lg:m-auto z-0'/>  
       </div>
     </section>
-      
+
       <section>
-      <div className="h-full w-full bg-no-repeat bg-16 lg:bg-50% bg-right bg-fixed md:bg-ollie ">
-      <div className="text-white p-6 md:w-2/3 lg:w-1/3 my-12 md:my-48  mx-auto" id="about">
+      <div className="h-full w-full bg-no-repeat lg:bg-50% bg-right bg-fixed md:bg-ollie ">
+      <div className="text-white p-6 md:w-2/3 lg:w-1/2  md:my-48  mx-auto" id="about">
         <h2 className="text-6xl md:-ml-8 mb-8 font-bold text-[#c6c60c]">About Me</h2> 
-        
-        <PortableText  value={data.sanityAbout._rawBody} components={components} />
+        <div className="w-3/4">
+        <PortableText   value={data.sanityAbout._rawBody} components={components} />
+        </div>
         <div className=" mt-8 text-xl ">
           <p className="mb-4">Here are a few technologies that I love working with:</p>
           <ul className="grid grid-rows-6 md:grid-rows-4 grid-flow-col gap-4">
@@ -88,7 +89,7 @@ const IndexPage = ({data}) => {
       </section>
       {/* {console.log(work[3]._rawDescription)} */}
       <section className=' p-6 md:w-2/3 lg:w-1/2 mx-auto md:my-48' id="work"> 
-            <h3 className="text-6xl text-center mb-8 font-bold text-[#c6c60c]">Work</h3>
+            <h2 className="text-6xl md:-ml-8 mb-8 font-bold text-[#c6c60c]">Work</h2>
             <Tabs defaultIndex={0} className="text-white text-xl">
                 <TabList> 
                 <Tab>{work[2].company}</Tab>
@@ -143,12 +144,12 @@ const IndexPage = ({data}) => {
         </section>
         
         {/* Projects */}
-      <section className="md:my-48" id="projects">  
-        <h2 className="text-center text-6xl font-bold">Built <span className='text-[#c6c60c]'>Projects</span></h2>
+      <section className="mx-auto md:my-48" id="projects">  
+        <h2 className="md:-ml-96 text-center text-6xl font-bold">Built <span className='text-[#c6c60c]'>Projects</span></h2>
         <p className="text-white text-center text-sm">checkout my github for more projects that aren't deployed!</p>
         
-        {project.map((item) => (
-          <div key={item.id} className="grid lg:grid-cols-2 gap-4 md:w-2/3 lg:w-1/2 m-auto my-8 p-4 rounded-lg text-white">
+        {project.sort().map((item) => (
+          <div key={item.id} className="grid lg:grid-cols-2 gap-4 md:w-2/3 lg:w-1/2 m-auto my-8 px-12 rounded-lg text-white">
       
            <GatsbyImage image={item.mainImage.asset.gatsbyImage} alt={item.alt} className='max-h-[20rem]'/>
            <div>
