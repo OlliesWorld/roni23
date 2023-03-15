@@ -50,7 +50,14 @@ const IndexPage = ({data}) => {
   const project = data.allSanityProject.nodes
   const work = data.allSanityExperience.nodes
   const tags = data.allSanityTag.nodes
-
+  
+  const sortedProjects = project.sort((a, b) =>
+  a.title.toLowerCase() < b.title.toLowerCase()
+    ? -1
+    : b.title.toLowerCase() > a.title.toLowerCase()
+    ? 1
+    : 0
+);
   return (
     <>
     <Seo title="Roni Developer Portfolio | Front-end Developer" />
@@ -80,7 +87,7 @@ const IndexPage = ({data}) => {
           <p className="mb-4">Here are a few technologies that I love working with:</p>
           <ul className="grid grid-rows-6 md:grid-rows-4 grid-flow-col gap-4">
             {tags.map((tag) => (
-              <li key={tag.id} className=' flex'><CgBolt className="mt-1 mr-2 text-[#c6c60c]" />{tag.name}</li>
+              <li key={tag._id} className=' flex'><CgBolt className="mt-1 mr-2 text-[#c6c60c]" />{tag.name}</li>
             ))}
           </ul>
         </div>
@@ -148,7 +155,7 @@ const IndexPage = ({data}) => {
         <h2 className="md:pr-64 text-center text-6xl font-bold">Built <span className='text-[#c6c60c]'>Projects</span></h2>
         <p className="text-white text-center text-sm">checkout my github for more projects that aren't deployed!</p>
         
-        {project.sort().map((item) => (
+        {sortedProjects.sort().map((item) => (
           <div key={item.id} className="grid lg:grid-cols-2 gap-4 md:w-2/3 lg:w-1/2 m-auto my-8 px-12 rounded-lg text-white">
       
            <GatsbyImage image={item.mainImage.asset.gatsbyImage} alt={item.alt} className='max-h-[20rem]'/>
@@ -157,7 +164,7 @@ const IndexPage = ({data}) => {
            <h3 className="my-2">{item.subtitle}</h3>
            
            
-           <p className="lg:-ml-12 p-6 bg-[#00468b] border-[#00468b] drop-shadow-lg lg:origin-top-right lg:rotate-6 lg:hover:rotate-0 lg:hover:transition-transform ease-in-out lg:hover:translate-x-8 sm:tranfom-none motion-reduce:transition-none motion-reduce:hover:transform-none">{item.description}</p>
+           <p className="lg:-ml-12 p-6 bg-[#00468b] border-[#00468b] drop-shadow-lg  ">{item.description}</p>
            <div  className="flex flex-wrap mt-4 align-self-center">
              <a href={item.github} target="_blank" rel="noreferrer" alt="link to project github repo"><FiGithub className="text-white text-2xl mb-4 lg:mb-0 hover:text-[#c6c60c] mr-4" /></a>
              <a href={item.href} target="_blank" rel="noreferrer" alt="link to projects site"><CgArrowTopRightR className="text-white text-2xl mb-4 lg:mb-0 hover:text-[#c6c60c] mr-4"/></a>
@@ -165,7 +172,7 @@ const IndexPage = ({data}) => {
              {/* <p>tags</p> */}
              {/* {console.log(item.tags)} */}
              {item.tags.map((tag) => (
-               <div key={tag.id}  className=''>
+               <div key={tag._id}  className=''>
                  {tag.name === 'Gatsby' && (<p className="text-purple-700">{tag.name}</p>)}
                  {tag.name === 'Netlify' && (<p className="text-green-500 ">{tag.name}</p>)}
                  {tag.name === 'Styled Components' && (<p className="text-pink-500">{tag.name}</p>)}
@@ -234,14 +241,14 @@ export const query = graphql`
           }
         }
         tags {
-          id
+          _id
           name
         }
         }
       }
  allSanityProject {
       nodes {
-        id
+        _id
         subtitle
         title
         description
@@ -255,13 +262,13 @@ export const query = graphql`
         }
         tags {
           name
-          id
+          _id
         }
       }
     }
     allSanityTag {
     nodes {
-      id
+      _id
       name
     }
   }
