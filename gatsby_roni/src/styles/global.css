@@ -16,3 +16,92 @@
 .fun {
     border-radius: 53% 47% 70% 30% / 30% 30% 70% 70% ;
 }
+.first-div{
+  width: 40px;
+  position: fixed;
+  bottom: 0px;
+  left: 20px;
+  
+  z-index: 10;
+}
+.second-div {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.rotate-name {
+  transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+  margin: 20px auto;
+    padding: 10px;
+    
+    line-height: 18px;
+    letter-spacing: 0.1em;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+}
+
+
+.custom-shape-divider-top-1678992978 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1678992978 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 421px;
+}
+
+.custom-shape-divider-top-1678992978 .shape-fill {
+  fill: #C6C60C;
+}
+
+
+
+
+
+ /* Base Divider class */
+.divider {
+  display: flex;
+}
+  .divider:before,
+  .divider:after {
+    content: "";
+    flex: 1;
+  }
+
+
+ /* Base line */
+.line {
+  align-items: center;
+  /* margin: 1em -1em; */
+}
+  .lin:before,
+  .lin:after {
+    height: 1px;
+    margin: 0 1em;
+  }
+
+  .glow:before,
+    .glow:after {
+      height: 6px;
+      -webkit-filter: blur(5px);
+      border-radius: 5px;
+    }
+    
+    .glow:before {
+      background: linear-gradient(to right, blue, #a855f7, #c6c60c);
+    }
+    
+    .glow:after {
+      background: linear-gradient(to left, blue, #a855f7, #c6c60c);
+    }
+  
