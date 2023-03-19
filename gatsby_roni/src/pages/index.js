@@ -78,7 +78,7 @@ const IndexPage = ({ data }) => {
       <div className="bg-[#05386b] h-full py-8 scroll-smooth">
         <Social />
 
-        <section className="lg:w-3/4 mt-4 md:mb-48 mx-auto md:flex">
+        <section className="lg:w-3/4 mt-4 md:mb-24 mx-auto md:flex">
           <h2 className="z-10 p-8 animate-border rounded-xl bg-white bg-gradient-to-r from-teal-500 via-purple-500 to-regal-green bg-[length:400%_400%]  transition hover:shadow-lg  focus:outline-none focus:ring text-[#05386b] text-4xl md:w-3/5 lg:w-2/5 my-auto md:ml-24 lg:ml-56">
             {about.subtitle}
           </h2>
@@ -91,7 +91,7 @@ const IndexPage = ({ data }) => {
             />
           </div>
         </section>
-        <div className="divider line glow text-regal-green"> -`♡´- </div>
+        <div className="divider line glow text-regal-green my-8 md:-my-0"> -`♡´- </div>
         <section>
           <div className="h-full w-full bg-no-repeat lg:bg-50% bg-right bg-fixed md:bg-ollie ">
             <div
@@ -124,8 +124,8 @@ const IndexPage = ({ data }) => {
           </div>
         </section>
         {/* {console.log(work[3]._rawDescription)} */}
-        <div className="divider line glow text-regal-green"> -`♡´- </div>
-        <section className=" p-6 md:w-2/3 lg:w-1/2 mx-auto md:my-48" id="work">
+        <div className="divider line glow text-regal-green my-8 md:-my-0"> -`♡´- </div>
+        <section className=" p-6 md:w-2/3 lg:w-1/2 mx-auto md:my-24" id="work">
           <h2 className="text-6xl md:-ml-8 mb-8 font-bold text-regal-green">
             Work
           </h2>
@@ -223,9 +223,9 @@ const IndexPage = ({ data }) => {
           </Tabs>
         </section>
 
-        <div className="divider line glow text-regal-green"> -`♡´- </div>
+        <div className="divider line glow text-regal-green my-8 md:-my-0"> -`♡´- </div>
         {/* Projects */}
-        <section className="relative mx-auto md:my-48" id="projects">
+        <section className="relative mx-auto md:my-24" id="projects">
           {/* <div class="divider line glow " contenteditable></div> */}
           <h2 className=" w-3/4 m-auto text-center text-6xl font-bold text-regal-green">
             Built Projects
@@ -237,7 +237,7 @@ const IndexPage = ({ data }) => {
           {sortedProjects.sort().map((item) => (
             <div
               key={item._id}
-              className="grid lg:grid-cols-2 gap-4 md:w-2/3 lg:w-1/2 m-auto my-12 px-12 rounded-lg text-white"
+              className="grid lg:grid-cols-2 gap-4 md:w-3/4 lg:w-1/2 m-auto my-12 px-4 md:px-12 rounded-lg text-white"
             >
               <GatsbyImage
                 image={item.mainImage.asset.gatsbyImage}
@@ -296,8 +296,8 @@ const IndexPage = ({ data }) => {
             </div>
           ))}
         </section>
-        <div className="divider line glow text-regal-green"> -`♡´- </div>
-        <section className="p-6 md:w-2/3 lg:w-1/2 mx-auto my-6 md:my-48 text-white">
+        <div className="divider line glow text-regal-green my-8 md:-my-0"> -`♡´- </div>
+        <section className="p-6 md:w-2/3 lg:w-1/2 mx-auto my-6 md:my-24 text-white">
           <h3 className="text-4xl">Get In Touch</h3>
           <p className="text-xl">
             I am currently looking for my next full-time opportunity. Please
