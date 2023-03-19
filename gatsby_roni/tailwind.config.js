@@ -9,6 +9,9 @@ module.exports = {
       backgroundImage: {
         'ollie': "url('/olliecute.png')",
       },
+      colors: {
+        'regal-green': '#c6c60c',
+      },
       backgroundSize: {
         '50%': '50%',
       '16': '14rem',

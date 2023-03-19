@@ -17,10 +17,10 @@ const components = {
   block: {
     // Ex. 1: customizing common block types
     strong: ({ children }) => (
-      <strong className="text-2xl text-[#c6c60c]">{children}</strong>
+      <strong className="text-2xl text-regal-green">{children}</strong>
     ),
     em: ({ children }) => (
-      <strong className="text-2xl text-[#c6c60c]">{children}</strong>
+      <strong className="text-2xl text-regal-green">{children}</strong>
     ),
     h1: ({ children }) => <h1 className="text-2xl text-white">{children}</h1>,
     blockquote: ({ children }) => (
@@ -44,7 +44,7 @@ const components = {
       // const target = !value.href.startsWith('/') ? '_blank' : undefined
       return (
         <a
-          className="text-[#c6c60c] break-all"
+          className="text-regal-green break-all"
           target="_blank"
           href={value.href}
           rel="noreferrer noopener"
@@ -79,7 +79,7 @@ const IndexPage = ({ data }) => {
         <Social />
 
         <section className="lg:w-3/4 mt-4 md:mb-48 mx-auto md:flex">
-          <h2 className="z-10 p-8 animate-border rounded-xl bg-white bg-gradient-to-r from-teal-500 via-purple-500 to-[#c6c60c] bg-[length:400%_400%]  transition hover:shadow-lg  focus:outline-none focus:ring text-[#05386b] text-4xl md:w-3/5 lg:w-2/5 my-auto md:ml-24 lg:ml-56">
+          <h2 className="z-10 p-8 animate-border rounded-xl bg-white bg-gradient-to-r from-teal-500 via-purple-500 to-regal-green bg-[length:400%_400%]  transition hover:shadow-lg  focus:outline-none focus:ring text-[#05386b] text-4xl md:w-3/5 lg:w-2/5 my-auto md:ml-24 lg:ml-56">
             {about.subtitle}
           </h2>
 
@@ -91,17 +91,17 @@ const IndexPage = ({ data }) => {
             />
           </div>
         </section>
-
+        <div className="divider line glow text-regal-green"> -`♡´- </div>
         <section>
           <div className="h-full w-full bg-no-repeat lg:bg-50% bg-right bg-fixed md:bg-ollie ">
             <div
-              className="text-white p-6 md:w-2/3 lg:w-1/2  md:my-48  mx-auto"
+              className="text-white p-6 md:w-2/3 lg:w-1/2  md:my-48  mx-auto  backdrop-blur-xl backdrop-brightness-50  lg:backdrop-filter-none"
               id="about"
             >
-              <h2 className="text-6xl md:-ml-8 mb-8 font-bold text-[#c6c60c]">
+              <h2 className="text-6xl md:-ml-4 mb-8 font-bold text-regal-green">
                 About Me
               </h2>
-              <div className="md:w-3/4">
+              <div className="lg:w-3/4">
                 <PortableText
                   value={data.sanityAbout._rawBody}
                   components={components}
@@ -114,7 +114,7 @@ const IndexPage = ({ data }) => {
                 <ul className="grid grid-rows-6 md:grid-rows-4 grid-flow-col gap-4">
                   {tags.map((tag) => (
                     <li key={tag._id} className=" flex">
-                      <CgBolt className="mt-1 mr-2 text-[#c6c60c]" />
+                      <CgBolt className="mt-1 mr-2 text-regal-green" />
                       {tag.name}
                     </li>
                   ))}
@@ -124,8 +124,9 @@ const IndexPage = ({ data }) => {
           </div>
         </section>
         {/* {console.log(work[3]._rawDescription)} */}
+        <div className="divider line glow text-regal-green"> -`♡´- </div>
         <section className=" p-6 md:w-2/3 lg:w-1/2 mx-auto md:my-48" id="work">
-          <h2 className="text-6xl md:-ml-8 mb-8 font-bold text-[#c6c60c]">
+          <h2 className="text-6xl md:-ml-8 mb-8 font-bold text-regal-green">
             Work
           </h2>
           <Tabs defaultIndex={0} className="text-white text-xl">
@@ -138,8 +139,8 @@ const IndexPage = ({ data }) => {
             <TabPanel>
               <div className="md:flex mb-4 justify-between">
                 <div className="flex">
-                  <CgBolt className="mt-1 mr-4 text-[#c6c60c]0" />
-                  <h3 className=" text-[#c6c60c] font-bold">
+                  <CgBolt className="mt-1 mr-4 text-regal-green" />
+                  <h3 className=" text-regal-green font-bold">
                     {work[0].title} @ {work[0].company}
                   </h3>
                 </div>
@@ -152,7 +153,7 @@ const IndexPage = ({ data }) => {
                 />
                 {work[0].href && (
                   <a
-                    className="hover:text-white text-[#c6c60c] "
+                    className="hover:text-white text-regal-green"
                     href={work[0].href}
                     target="_blank"
                     rel="noreferrer"
@@ -165,8 +166,8 @@ const IndexPage = ({ data }) => {
             <TabPanel>
               <div className="md:flex mb-4 justify-between">
                 <div className="flex">
-                  <CgBolt className="mt-1 mr-4 text-[#c6c60c]" />
-                  <h3 className=" text-[#c6c60c] font-bold">
+                  <CgBolt className="mt-1 mr-4 text-regal-green" />
+                  <h3 className=" text-regal-green font-bold">
                     {work[2].title} @ {work[2].company}
                   </h3>
                 </div>
@@ -180,7 +181,7 @@ const IndexPage = ({ data }) => {
                 {work[2].href && (
                   <a
                     href={work[2].href}
-                    className="hover:text-white text-[#c6c60c]"
+                    className="hover:text-white text-regal-green"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -192,8 +193,8 @@ const IndexPage = ({ data }) => {
             <TabPanel>
               <div className="md:flex mb-4 justify-between">
                 <div className="flex">
-                  <CgBolt className="mt-1 mr-4 text-[#c6c60c]" />
-                  <h3 className=" text-[#c6c60c] font-bold">
+                  <CgBolt className="mt-1 mr-4 text-regal-green" />
+                  <h3 className=" text-regal-green font-bold">
                     {work[1].title} @ {work[1].company}
                   </h3>
                 </div>
@@ -206,7 +207,7 @@ const IndexPage = ({ data }) => {
                 />
                 {work[1].href && (
                   <a
-                    className="hover:text-white text-[#c6c60c]"
+                    className="hover:text-white text-regal-green"
                     href={work[1].href}
                     target="_blank"
                     rel="noreferrer"
@@ -220,20 +221,13 @@ const IndexPage = ({ data }) => {
               <p>this is the spot you can fill!</p>
             </TabPanel>
           </Tabs>
-          
         </section>
-        {/* <section className="relative">
-        <div className="custom-shape-divider-top-1678992978">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" className="shape-fill"></path>
-    </svg>
-</div>
-</section> */}
+
+        <div className="divider line glow text-regal-green"> -`♡´- </div>
         {/* Projects */}
         <section className="relative mx-auto md:my-48" id="projects">
-        
           {/* <div class="divider line glow " contenteditable></div> */}
-          <h2 className="divider line glow w-3/4 m-auto text-center text-6xl font-bold text-[#c6c60c]">
+          <h2 className=" w-3/4 m-auto text-center text-6xl font-bold text-regal-green">
             Built Projects
           </h2>
           <p className="text-white text-center text-sm">
@@ -264,7 +258,7 @@ const IndexPage = ({ data }) => {
                     rel="noreferrer"
                     alt="link to project github repo"
                   >
-                    <FiGithub className="text-white text-2xl mb-4 lg:mb-0 hover:text-[#c6c60c] mr-4" />
+                    <FiGithub className="text-white text-2xl mb-4 lg:mb-0 hover:text-regal-green mr-4" />
                   </a>
                   <a
                     href={item.href}
@@ -272,13 +266,13 @@ const IndexPage = ({ data }) => {
                     rel="noreferrer"
                     alt="link to projects site"
                   >
-                    <CgArrowTopRightR className="text-white text-2xl mb-4 lg:mb-0 hover:text-[#c6c60c] mr-4" />
+                    <CgArrowTopRightR className="text-white text-2xl mb-4 lg:mb-0 hover:text-regal-green mr-4" />
                   </a>
                   <div className="flex flex-wrap gap-4">
                     {/* <p>tags</p> */}
                     {/* {console.log(item.tags)} */}
                     {item.tags.map((tag) => (
-                      <div key={tag._id} >
+                      <div key={tag._id}>
                         {tag.name === "Gatsby" && (
                           <p className="text-purple-700">{tag.name}</p>
                         )}
@@ -302,6 +296,7 @@ const IndexPage = ({ data }) => {
             </div>
           ))}
         </section>
+        <div className="divider line glow text-regal-green"> -`♡´- </div>
         <section className="p-6 md:w-2/3 lg:w-1/2 mx-auto my-6 md:my-48 text-white">
           <h3 className="text-4xl">Get In Touch</h3>
           <p className="text-xl">
@@ -311,7 +306,7 @@ const IndexPage = ({ data }) => {
           </p>
 
           <details className=" mt-8 open:bg-slate-600   open:ring-1 open:ring-black/5 open:shadow-lg md:p-6 rounded-lg transform-gpu delay-75 duration-100 ease-in-out ">
-            <summary className="leading-6 text-slate-900 dark:text-[#c6c60c] font-semibold select-none">
+            <summary className="leading-6 text-slate-900 dark:text-regal-green font-semibold select-none">
               Send a message
             </summary>
             <div className=" ">
