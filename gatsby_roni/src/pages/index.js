@@ -249,9 +249,8 @@ const IndexPage = ({ data }) => {
 
         {/* <div className="divider line glow text-regal-green my-8 md:-my-0"> -`♡´- </div> */}
         {/* Projects */}
-        <section className="relative mx-auto md:my-24" id="projects">
-          {/* <div class="divider line glow " contenteditable></div> */}
-          <h2 className=" w-3/4 m-auto text-center text-6xl font-bold text-regal-green">
+        <section className="mx-auto md:my-48" id="projects">  
+        <h2 className="lg:-ml-96 text-center text-6xl font-bold text-regal-green">
             Built Projects
           </h2>
           <p className="text-white text-center text-sm">
@@ -266,7 +265,7 @@ const IndexPage = ({ data }) => {
               <GatsbyImage
                 image={item.mainImage.asset.gatsbyImage}
                 alt={item.alt}
-                className="max-h-[20rem]"
+                className="max-h-[20rem] mt-2"
               />
               <div>
                 <h2 className="text-2xl font-bold underline">{item.title}</h2>
