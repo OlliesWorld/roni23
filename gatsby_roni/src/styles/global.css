@@ -77,6 +77,8 @@
  /* Base Divider class */
 .divider {
   display: flex;
+  width: 50%;
+  margin: auto;
 }
   .divider:before,
   .divider:after {

@@ -33,30 +33,24 @@ const components = {
     customHeading: ({ children }) => (
       <h2 className="text-lg text-primary text-purple-700">{children}</h2>
     ),
+    
   },
   listItem: {
     // Ex. 1: customizing common list types
     bullet: ({ children }) => <ul className="">{children}</ul>,
   },
   marks: {
-    link: ({ children, value }) => {
-      // const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
-      // const target = !value.href.startsWith('/') ? '_blank' : undefined
+    link: ({children, value}) => {
+      const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
       return (
-        <a
-          className="text-regal-green break-all"
-          target="_blank"
-          href={value.href}
-          rel="noreferrer noopener"
-        >
+        <a className="text-regal-green" href={value.href} rel={rel}>
           {children}
         </a>
-      );
+      )
     },
   },
 };
-// #0c243c
-// #0c243c -olive tone
+
 
 const IndexPage = ({ data }) => {
   const about = data.sanityAbout;
@@ -91,7 +85,7 @@ const IndexPage = ({ data }) => {
             />
           </div>
         </section>
-        <div className="divider line glow text-regal-green my-8 md:-my-0"> -`♡´- </div>
+        {/* <div className="divider line glow text-regal-green my-8 md:-my-0"> -`♡´- </div> */}
         <section>
           <div className="h-full w-full bg-no-repeat lg:bg-50% bg-right bg-fixed md:bg-ollie ">
             <div
@@ -124,50 +118,25 @@ const IndexPage = ({ data }) => {
           </div>
         </section>
         {/* {console.log(work[3]._rawDescription)} */}
-        <div className="divider line glow text-regal-green my-8 md:-my-0"> -`♡´- </div>
+        {/* <div className="divider line glow text-regal-green my-8 md:-my-0"> -`♡´- </div> */}
         <section className=" p-6 md:w-2/3 lg:w-1/2 mx-auto md:my-24" id="work">
           <h2 className="text-6xl md:-ml-8 mb-8 font-bold text-regal-green">
             Work
           </h2>
           <Tabs defaultIndex={0} className="text-white text-xl">
             <TabList>
-              <Tab>{work[0].company}</Tab>
               <Tab>{work[2].company}</Tab>
+            <Tab>{work[3].company}</Tab>
+              <Tab>{work[0].company}</Tab>
               <Tab>{work[1].company}</Tab>
               <Tab disabled>Future Opportunity</Tab>
             </TabList>
+            
             <TabPanel>
               <div className="md:flex mb-4 justify-between">
                 <div className="flex">
                   <CgBolt className="mt-1 mr-4 text-regal-green" />
-                  <h3 className=" text-regal-green font-bold">
-                    {work[0].title} @ {work[0].company}
-                  </h3>
-                </div>
-                <p className="text-base">{work[0].time}</p>
-              </div>
-              <div className="work ml-0 lg:ml-6">
-                <PortableText
-                  value={work[0]._rawDescription}
-                  components={components}
-                />
-                {work[0].href && (
-                  <a
-                    className="hover:text-white text-regal-green"
-                    href={work[0].href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Newsletter Page
-                  </a>
-                )}
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div className="md:flex mb-4 justify-between">
-                <div className="flex">
-                  <CgBolt className="mt-1 mr-4 text-regal-green" />
-                  <h3 className=" text-regal-green font-bold">
+                  <h3 className="text-2xl text-regal-green font-bold">
                     {work[2].title} @ {work[2].company}
                   </h3>
                 </div>
@@ -178,10 +147,37 @@ const IndexPage = ({ data }) => {
                   value={work[2]._rawDescription}
                   components={components}
                 />
-                {work[2].href && (
+                
                   <a
                     href={work[2].href}
                     className="hover:text-white text-regal-green"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Deployed Site
+                  </a>
+                
+              </div>
+            </TabPanel>
+            <TabPanel>
+              <div className="md:flex mb-4 justify-between">
+                <div className="flex">
+                  <CgBolt className="mt-1 mr-4 text-regal-green" />
+                  <h3 className="text-2xl text-regal-green font-bold">
+                    {work[3].title} @ {work[3].company}
+                  </h3>
+                </div>
+                <p className="text-base">{work[3].time}</p>
+              </div>
+              <div className="work ml-0 lg:ml-6">
+                <PortableText
+                  value={work[3]._rawDescription}
+                  components={components}
+                />
+                {work[3].href && (
+                  <a
+                    className="hover:text-white text-regal-green"
+                    href={work[3].href}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -194,7 +190,35 @@ const IndexPage = ({ data }) => {
               <div className="md:flex mb-4 justify-between">
                 <div className="flex">
                   <CgBolt className="mt-1 mr-4 text-regal-green" />
-                  <h3 className=" text-regal-green font-bold">
+                  <h3 className="text-2xl text-regal-green font-bold">
+                    {work[0].title} @ {work[0].company}
+                  </h3>
+                </div>
+                <p className="text-base">{work[0].time}</p>
+              </div>
+              <div className="work ml-0 lg:ml-6">
+                <PortableText
+                  value={work[0]._rawDescription}
+                  components={components}
+                />
+                
+                  <a
+                    href={work[0].href}
+                    className="hover:text-white text-regal-green"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Deployed Site
+                  </a>
+                
+              </div>
+            </TabPanel>
+           
+            <TabPanel>
+              <div className="md:flex mb-4 justify-between">
+                <div className="flex">
+                  <CgBolt className="mt-1 mr-4 text-regal-green" />
+                  <h3 className="text-2xl text-regal-green font-bold">
                     {work[1].title} @ {work[1].company}
                   </h3>
                 </div>
@@ -205,7 +229,7 @@ const IndexPage = ({ data }) => {
                   value={work[1]._rawDescription}
                   components={components}
                 />
-                {work[1].href && (
+              
                   <a
                     className="hover:text-white text-regal-green"
                     href={work[1].href}
@@ -214,7 +238,7 @@ const IndexPage = ({ data }) => {
                   >
                     Deployed Site
                   </a>
-                )}
+                
               </div>
             </TabPanel>
             <TabPanel>
@@ -223,7 +247,7 @@ const IndexPage = ({ data }) => {
           </Tabs>
         </section>
 
-        <div className="divider line glow text-regal-green my-8 md:-my-0"> -`♡´- </div>
+        {/* <div className="divider line glow text-regal-green my-8 md:-my-0"> -`♡´- </div> */}
         {/* Projects */}
         <section className="relative mx-auto md:my-24" id="projects">
           {/* <div class="divider line glow " contenteditable></div> */}
@@ -296,7 +320,7 @@ const IndexPage = ({ data }) => {
             </div>
           ))}
         </section>
-        <div className="divider line glow text-regal-green my-8 md:-my-0"> -`♡´- </div>
+        {/* <div className="divider line glow text-regal-green my-8 md:-my-0"> -`♡´- </div> */}
         <section className="p-6 md:w-2/3 lg:w-1/2 mx-auto my-6 md:my-24 text-white">
           <h3 className="text-4xl">Get In Touch</h3>
           <p className="text-xl">
