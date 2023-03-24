@@ -121,9 +121,9 @@ const IndexPage = ({ data }) => {
         {/* <div className="divider line glow text-regal-green my-8 md:-my-0"> -`♡´- </div> */}
         <section className=" p-6 md:w-2/3 lg:w-1/2 mx-auto md:my-24" id="work">
           <h2 className="text-6xl md:-ml-8 mb-8 font-bold text-regal-green">
-            Work
+            Experience
           </h2>
-          <Tabs defaultIndex={0} className="text-white text-xl">
+          <Tabs defaultIndex={2} className="text-white text-xl">
             <TabList>
               <Tab>{work[2].company}</Tab>
             <Tab>{work[3].company}</Tab>
@@ -254,7 +254,7 @@ const IndexPage = ({ data }) => {
             Built Projects
           </h2>
           <p className="text-white text-center text-sm">
-            checkout my github for more projects that aren't deployed!
+            checkout my <a href='https://github.com/OlliesWorld' target="_blank" rel="noreferrer" aria-label="link to my github profile" className="border-b-2">github</a> for more projects that aren't deployed!
           </p>
 
           {sortedProjects.sort().map((item) => (
