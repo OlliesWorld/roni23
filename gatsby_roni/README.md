@@ -7,7 +7,7 @@ I wanted an simple and clean site that also was easy to update when needed.
 Project is created with:<br/>
 Gatsby </br>
 Sanity </br>
-TailwindCSS </br>
+Styled-components </br>
 Netlify
 
 	

@@ -18,6 +18,7 @@ module.exports = {
         token: process.env.MY_SANITY_TOKEN,
       },
     },
+    'gatsby-plugin-sitemap',
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     {
