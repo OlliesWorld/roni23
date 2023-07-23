@@ -4,7 +4,7 @@
  require('dotenv').config();
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://www.roni.rocks",
     title: "Roni: Developer;",
     author: `Roni`,
     subdescription: "I am a front-end developer backed by grit and tenacity that strives to find the most efficient and unique solutions."
@@ -18,7 +18,7 @@ module.exports = {
         token: process.env.MY_SANITY_TOKEN,
       },
     },
-    'gatsby-plugin-sitemap',
+    "gatsby-plugin-sitemap",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     {
