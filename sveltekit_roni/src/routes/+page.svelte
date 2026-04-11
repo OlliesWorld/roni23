@@ -8,20 +8,25 @@
   let aboutSection: HTMLElement;
   let workSection: HTMLElement;
   let contactSection: HTMLElement;
+  let ollieVisible = false;
 
   onMount(() => {
-    inView(aboutSection, () => {
-      animate(aboutSection, { opacity: [0, 1], y: [40, 0] }, { duration: 0.6 });
-    });
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      animate(aboutSection, { opacity: [0, 1], y: [40, 0] }, { duration: 0.6, delay: 0.2 });
+    } else {
+      inView(aboutSection, () => {
+        animate(aboutSection, { opacity: [0, 1], y: [40, 0] }, { duration: 0.6 });
+      });
+    }
     const cards = workSection.querySelectorAll("[data-case-study]");
     cards.forEach((card) => {
       inView(card, () => {
         animate(card, { opacity: [0, 1], y: [40, 0] }, { duration: 0.6 });
         const border = card.querySelector("[data-border]");
-        if (border) animate(border as Element, { height: ["0%", "100%"] }, { delay: 0.2, duration: 0.8 });
+        if (border) animate(border as Element, { height: ["0%", "100%"] }, { delay: 0.5, duration: 0.8 });
         const badges = card.querySelectorAll("[data-badge]");
         animate(badges, { opacity: [0, 1], y: [6, 0] }, { delay: stagger(0.06), duration: 0.25 });
-      });
+      }, { margin: "0px 0px -50px 0px" });
     });
     inView(contactSection, () => {
       animate(
@@ -33,8 +38,8 @@
   });
 </script>
 
-<div class="bg-[#05386b] h-full py-8 scroll-smooth">
-  <div id="top" class="text-right mr-24 sticky top-0">
+<div class="bg-[#05386b] h-full py-8 scroll-smooth px-4 md:px-0">
+  <div id="top" class="sticky top-0 z-50 text-right px-4 md:mr-24 py-2 bg-[#05386b]/80 backdrop-blur-sm">
     <a
       class="text-white hover:text-purple-700 uppercase text-lg pr-8"
       href="/#about">About</a
@@ -49,7 +54,7 @@
   <!-- Hero -->
   <section class="lg:w-3/4 mt-4 md:mb-24 mx-auto md:flex">
     <h2
-      class="z-10 p-8 animate-border rounded-xl bg-white bg-gradient-to-r from-teal-500 via-purple-500 to-regal-green bg-[length:400%_400%] transition hover:shadow-lg focus:outline-none focus:ring text-[#05386b] text-4xl md:w-3/5 lg:w-2/5 my-auto md:ml-24 lg:ml-56"
+      class="z-10 p-8 animate-border rounded-xl bg-white bg-gradient-to-r from-teal-500 via-purple-500 to-regal-green bg-[length:400%_400%] transition hover:shadow-lg focus:outline-none focus:ring text-[#05386b] text-2xl md:text-4xl md:w-3/5 lg:w-2/5 my-auto md:ml-24 lg:ml-56"
     >
       {about.subtitle}
     </h2>
@@ -76,7 +81,7 @@
     >
       <div
         bind:this={aboutSection}
-        class="text-white md:w-2/3 lg:w-1/2 md:my-48 mx-auto backdrop-blur-xl backdrop-brightness-50 lg:backdrop-filter-none"
+        class="mt-6 md:mt-0 text-white md:w-2/3 lg:w-1/2 md:my-48 mx-auto backdrop-blur-xl lg:backdrop-filter-none"
         id="about"
         style="opacity: 0"
       >
@@ -86,6 +91,14 @@
         <div class="lg:w-3/4">
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
           {@html about.body}
+          <p class="break-word text-white mb-4 text-2xl">
+            Also, I have the cutest and best pup!
+            <button
+              class="md:hidden text-regal-green underline underline-offset-4 cursor-pointer"
+              on:click={() => (ollieVisible = true)}
+            >Ollie 🥰</button>
+            <span class="hidden md:inline">Ollie 🥰</span>
+          </p>
         </div>
         <div class="mt-8 text-xl">
           <p class="mb-4">Some tech that I have experience with:</p>
@@ -174,9 +187,10 @@
                 href={study.href}
                 target="_blank"
                 rel="noreferrer"
-                class="ml-auto text-regal-green hover:text-white text-sm border-b border-regal-green"
+                class="slide-link ml-auto text-regal-green text-sm"
+                data-text="View site →"
               >
-                View site →
+                <span>View site →</span>
               </a>
             {/if}
           </div>
@@ -209,6 +223,21 @@
   </section>
 </div>
 
+<!-- Ollie overlay (mobile only) -->
+{#if ollieVisible}
+  <button
+    class="md:hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
+    on:click={() => (ollieVisible = false)}
+    aria-label="Close"
+  >
+    <div class="absolute bottom-0 left-0 right-0 bg-[#05386b] rounded-t-2xl p-6 flex flex-col items-center gap-4 ollie-sheet">
+      <div class="w-12 h-1 bg-gray-500 rounded-full mb-2"></div>
+      <img src="/olliecute.png" alt="Ollie" class="w-64 h-64 object-cover rounded-2xl" />
+      <p class="text-white text-xl">The best pup 🥰</p>
+    </div>
+  </button>
+{/if}
+
 <style>
   @keyframes shimmer {
     0% {
@@ -217,6 +246,42 @@
     100% {
       background-position: -200% center;
     }
+  }
+
+  :global(.ollie-sheet) {
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+
+  :global(.slide-link) {
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+  }
+
+  :global(.slide-link span) {
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  :global(.slide-link::after) {
+    content: attr(data-text);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transition: top 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  :global(.slide-link:hover span) {
+    transform: translateY(-100%);
+  }
+
+  :global(.slide-link:hover::after) {
+    top: 0;
   }
 
   :global(.badge-shimmer) {

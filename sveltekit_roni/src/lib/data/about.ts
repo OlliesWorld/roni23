@@ -8,7 +8,7 @@ export const about = {
 
 <p class="break-word text-regal-green mb-4 text-2xl">My goal is to make sites that feel intuitive, purposeful, and have small moments of motion that bring a smile.</p>
 
-<p class="break-word text-white mb-4 text-2xl">Also, I have the cutest and best pup! Ollie 🥰--></p>`,
+`,
 	techStack: [
 		'React',
 		'Svelte',
