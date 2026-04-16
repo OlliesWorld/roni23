@@ -13,7 +13,7 @@ export default {
 	theme: {
 		extend: {
 			backgroundImage: {
-				ollie: "url('/olliecute.png')"
+				ollie: "url('/olliecute.webp')"
 			},
 			backgroundSize: {
 				'50%': '50%',
