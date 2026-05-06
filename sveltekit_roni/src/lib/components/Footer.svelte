@@ -4,6 +4,13 @@
 		<a href="https://roni.rocks/" target="_blank" rel="noreferrer"> Roni</a>
 	</p>
 	<p class="text-lg">&copy; {new Date().getFullYear()} Roni: Developer;</p>
+	<a
+		href="https://olliesworld.xyz"
+		target="_blank"
+		rel="noreferrer"
+		class="text-xs text-white/40 hover:text-white/70 transition-colors mt-2 inline-block"
+	>playground</a
+	>
 	<div class="flex justify-center mt-4 gap-4 md:hidden">
 		<a
 			href="https://github.com/OlliesWorld"
