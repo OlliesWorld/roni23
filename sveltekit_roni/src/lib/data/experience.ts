@@ -7,13 +7,27 @@ export interface CaseStudy {
 	solution: string;  // What did you build / do?
 	outcome: string;   // What was the result?
 	href?: string;
-	image?: string;    // /images/work/...
+	writeup?: string;  // link to a longer write-up (repo, blog post)
+	image?: string;   // /images/work/...
 	imageSize?: 'full' | 'small'; // 'full' = wide banner (default), 'small' = logo/square
 	tags: string[];
 }
 
 // TODO: fill in from your Sanity export — 3 case studies
 export const caseStudies: CaseStudy[] = [
+	{
+		title: 'SheKnows: Women\'s Sports Myth Buster + Eval',
+		company: 'Personal Project',
+		time: '2026',
+		role: 'Developer',
+		problem: 'SheKnows busts myths about women\'s sports using Gemini with live web search. Answers sound confident either way, so I needed to know whether it was actually getting the facts right.',
+		solution: 'I built an eval suite of 26 test claims to score the app\'s verdicts. It showed that search grounding was essential: without it, the same model confidently called true 2025 records false.',
+		outcome: 'The eval caught two bugs in the live app, and one prompt change took it from 16 to 23 of 26 test claims passing. Now every change gets measured instead of guessed at.',
+		href: 'https://sheknows.olliesworld.xyz/',
+		writeup: 'https://github.com/OlliesWorld/sheknows-evals',
+		image: '/sheknows.jpg',
+		tags: ['Gemini API', 'Search Grounding', 'LLM Evals']
+	},
 	{
 		title: 'State of the API Report (7th Annual)',
 		company: 'Postman',

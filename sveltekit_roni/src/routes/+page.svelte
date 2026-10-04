@@ -236,12 +236,23 @@
                 >{tag}</span
               >
             {/each}
+            {#if study.writeup}
+              <a
+                href={study.writeup}
+                target="_blank"
+                rel="noreferrer"
+                class="slide-link ml-auto text-regal-green text-sm focus:outline-none focus:ring-2 focus:ring-regal-green rounded"
+                data-text="Read the write-up →"
+              >
+                <span>Read the write-up →</span>
+              </a>
+            {/if}
             {#if study.href}
               <a
                 href={study.href}
                 target="_blank"
                 rel="noreferrer"
-                class="slide-link ml-auto text-regal-green text-sm focus:outline-none focus:ring-2 focus:ring-regal-green rounded"
+                class="slide-link {study.writeup ? '' : 'ml-auto'} text-regal-green text-sm focus:outline-none focus:ring-2 focus:ring-regal-green rounded"
                 data-text="View site →"
               >
                 <span>View site →</span>
