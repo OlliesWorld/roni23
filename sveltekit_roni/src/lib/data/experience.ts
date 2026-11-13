@@ -16,6 +16,19 @@ export interface CaseStudy {
 // TODO: fill in from your Sanity export — 3 case studies
 export const caseStudies: CaseStudy[] = [
 	{
+		title: 'SheRules: Women\'s Sports Rules, in Plain Language',
+		company: 'Personal Project',
+		time: '2026',
+		role: 'Designer + Developer',
+		problem: 'Official rulebooks are long and written for officials, not fans. If you want to know why a call went the way it did, you shouldn\'t have to dig through a PDF to find out.',
+		solution: 'I designed and built a Q&A app that answers rules questions in plain language, grounded in official volleyball and basketball rulebooks. It also has an "Ask by voice" mode built on LiveKit.',
+		outcome: 'I ran an Impeccable design critique and acted on it: fewer clicks to start asking, and color contrast fixes. Every decision is written up, so changes are made on purpose, not by feel.',
+		href: 'https://sherules.olliesworld.xyz/',
+		writeup: 'https://github.com/OlliesWorld/sherules/blob/main/project_mgmt/DESIGN_CRITIQUE.md',
+		image: '/sherules.jpg',
+		tags: ['SvelteKit', 'LiveKit Voice', 'Accessibility']
+	},
+	{
 		title: 'SheKnows: Women\'s Sports Myth Buster + Eval',
 		company: 'Personal Project',
 		time: '2026',
